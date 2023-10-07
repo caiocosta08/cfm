@@ -1,0 +1,512 @@
+/* Checkout */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
+@media only screen and (min-width: 550px) and (max-width: 4000px) {
+    body {
+        font-family: 'Inter';
+        background-color: #ececec;
+        /* background-image: url('../images/QUEMCOMODEUS-1.png'); */
+    }
+
+    .checkout,
+    .order {
+        background-color: #FFF;
+        border-radius: 8px;
+        box-shadow: 0 .3rem 1.525rem -.375rem rgba(19, 16, 34, .1), 0 .25rem .8125rem -.125rem rgba(19, 16, 34, .06) !important;
+    }
+
+    .checkout-step {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+    .checkout-step-number {
+        font-size: 20px;
+        position: relative;
+        z-index: 2;
+        font-weight: 600;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 45px;
+        background-color: #08be4b;
+    }
+
+    .checkout-step-text {
+        font-size: 16px;
+        z-index: 1;
+        font-weight: 700;
+        color: #283930;
+        background-color: #edf7f2;
+        padding: 0.4rem 1.5rem 0.4rem 2.75rem;
+        left: 0.75rem;
+        position: absolute;
+        text-transform: uppercase;
+        border-radius: 35px;
+    }
+
+    .checkout-body label {
+        display: inline-block;
+        margin-bottom: 0.35rem;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+        font-weight: 700;
+        color: #555;
+    }
+
+    .checkout-input {
+        width: 100%;
+        font-size: 0.925em !important;
+        font-weight: 300 !important;
+        height: 47px !important;
+        color: #4c4e5e !important;
+        padding: 0 40px;
+    }
+
+    .checkout-input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: #dee2e6;
+    }
+
+    .checkout .bi {
+        position: relative;
+        top: -35px;
+        left: 15px;
+        opacity: 0.6;
+    }
+
+    .input-errors {
+        width: 100%;
+        font-size: 12px;
+        color: #be2b2b;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: -20px;
+    }
+
+    .nav-link,
+    .nav-link:hover {
+        background-color: #f8f9fa;
+        color: #999;
+        border: 1px solid #DDD;
+        margin-right: 10px;
+        width: 200px;
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .nav-link img,
+    .nav-link:hover img {
+        width: 20px;
+        height: 20px;
+        filter: grayscale(1);
+    }
+
+    .nav-link.active {
+        border: 1px solid #00ba59;
+        color: #00ba59 !important;
+        background-color: #f9fafb !important;
+    }
+
+    .nav-link.active img {
+        filter: hue-rotate(286deg);
+    }
+
+    .tab-pane h1 {
+        font-size: 1em;
+        font-weight: 700;
+        color: #353535;
+    }
+
+    .tab-pane h2 {
+        color: #08be4b;
+        font-size: 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .tab-pane h2 img {
+        filter: hue-rotate(-40deg) brightness(.9) !important;
+        margin-right: 5px;
+    }
+
+    .tab-pane p {
+        font-size: 0.9em;
+        font-weight: 300;
+        color: #353535;
+    }
+
+    .btn-payment {
+        width: 100%;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 700 !important;
+        font-size: 16px;
+        box-shadow: inset 0 -4px 0 0 #00000022;
+        letter-spacing: .25px;
+        background-color: #03d952;
+        border-color: #0ad458;
+        text-transform: uppercase;
+    }
+
+    .btn-payment:hover,
+    .btn-payment:active {
+        background-color: #00ba45 !important;
+        border-color: transparent;
+    }
+
+    /* Order Page */
+    .order h1 {
+        font-size: 2em;
+        font-weight: 600;
+        letter-spacing: -1px;
+        color: #353535;
+    }
+
+    .order p {
+        font-size: 0.975em;
+        font-weight: 300;
+        color: #353535;
+    }
+
+    .order .payment-step {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .order .payment-step-number {
+        font-size: 1em;
+        font-weight: bold;
+        color: #FFF;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 45px;
+        background-color: #08be4b;
+        position: absolute;
+    }
+
+    .order .payment-step-title {
+        font-size: 1em;
+        font-weight: 400;
+        color: #353535;
+        padding: 10px 0 0 40px;
+    }
+
+    .order input#pix {
+        font-size: 0.925em;
+        font-weight: 300;
+    }
+
+    .order input#pix:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .order button {
+        font-size: 14px;
+        font-weight: 500;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .order button i {
+        margin: 0 5px 0 0;
+    }
+
+    .order .btn-success {
+        background-color: #08be4b;
+        border-color: #08be4b;
+    }
+
+    .qr_code {
+        /* width: 100%; */
+        width: 300px;
+        height: 300px;
+        border: 6px solid #08be4b;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .btn-copy {
+        background-color: #5603d9;
+        border-color: #5603d9;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 0px) and (max-width: 549px) {
+    body {
+        font-family: 'Inter';
+        background-color: #ececec;
+    }
+
+    .checkout,
+    .order {
+        background-color: #FFF;
+        border-radius: 8px;
+        box-shadow: 0 .3rem 1.525rem -.375rem rgba(19, 16, 34, .1), 0 .25rem .8125rem -.125rem rgba(19, 16, 34, .06) !important;
+    }
+
+    .checkout-step {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+    .checkout-step-number {
+        font-size: 20px;
+        position: relative;
+        z-index: 2;
+        font-weight: 600;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 45px;
+        background-color: #08be4b;
+    }
+
+    .checkout-step-text {
+        font-size: 16px;
+        z-index: 1;
+        font-weight: 700;
+        color: #283930;
+        background-color: #edf7f2;
+        padding: 0.4rem 1.5rem 0.4rem 2.75rem;
+        left: 0.75rem;
+        position: absolute;
+        text-transform: uppercase;
+        border-radius: 35px;
+    }
+
+    .checkout-body label {
+        display: inline-block;
+        margin-bottom: 0.35rem;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+        font-weight: 700;
+        color: #555;
+    }
+
+    .checkout-input {
+        width: 100%;
+        font-size: 0.925em !important;
+        font-weight: 300 !important;
+        height: 47px !important;
+        color: #4c4e5e !important;
+        padding: 0 40px;
+    }
+
+    .checkout-input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: #dee2e6;
+    }
+
+    .checkout .bi {
+        position: relative;
+        top: -35px;
+        left: 15px;
+        opacity: 0.6;
+    }
+
+    .input-errors {
+        width: 100%;
+        font-size: 12px;
+        color: #be2b2b;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: -20px;
+    }
+
+    .nav-link,
+    .nav-link:hover {
+        background-color: #f8f9fa;
+        color: #999;
+        border: 1px solid #DDD;
+        margin-right: 10px;
+        width: 200px;
+        height: 80px;
+        font-size: 14px;
+    }
+
+    .nav-link img,
+    .nav-link:hover img {
+        width: 20px;
+        height: 20px;
+        filter: grayscale(1);
+    }
+
+    .nav-link.active {
+        border: 1px solid #00ba59;
+        color: #00ba59 !important;
+        background-color: #f9fafb !important;
+    }
+
+    .nav-link.active img {
+        filter: hue-rotate(286deg);
+    }
+
+    .tab-pane h1 {
+        font-size: 1em;
+        font-weight: 700;
+        color: #353535;
+    }
+
+    .tab-pane h2 {
+        color: #08be4b;
+        font-size: 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .tab-pane h2 img {
+        filter: hue-rotate(-40deg) brightness(.9) !important;
+        margin-right: 5px;
+    }
+
+    .tab-pane p {
+        font-size: 0.9em;
+        font-weight: 300;
+        color: #353535;
+    }
+
+    .btn-payment {
+        width: 100%;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 700 !important;
+        font-size: 16px;
+        box-shadow: inset 0 -4px 0 0 #00000022;
+        letter-spacing: .25px;
+        background-color: #03d952;
+        border-color: #0ad458;
+        text-transform: uppercase;
+    }
+
+    .btn-payment:hover,
+    .btn-payment:active {
+        background-color: #00ba45 !important;
+        border-color: transparent;
+    }
+
+    /* Order Page */
+    .order h1 {
+        font-size: 2em;
+        font-weight: 600;
+        letter-spacing: -1px;
+        color: #353535;
+    }
+
+    .order p {
+        font-size: 0.975em;
+        font-weight: 300;
+        color: #353535;
+    }
+
+    .order .payment-step {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .order .payment-step-number {
+        font-size: 1em;
+        font-weight: bold;
+        color: #FFF;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 45px;
+        background-color: #08be4b;
+        position: absolute;
+    }
+
+    .order .payment-step-title {
+        font-size: 1em;
+        font-weight: 400;
+        color: #353535;
+        padding: 10px 0 0 40px;
+    }
+
+    .order input#pix {
+        font-size: 0.925em;
+        font-weight: 300;
+    }
+
+    .order input#pix:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .order button {
+        font-size: 14px;
+        font-weight: 500;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .order button i {
+        margin: 0 5px 0 0;
+    }
+
+    .order .btn-success {
+        background-color: #08be4b;
+        border-color: #08be4b;
+    }
+
+    .qr_code {
+        width: 100%;
+        height: 300px;
+        border: 6px solid #08be4b;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .btn-copy {
+        background-color: #5603d9;
+        border-color: #5603d9;
+        width: 100%;
+    }
+}
