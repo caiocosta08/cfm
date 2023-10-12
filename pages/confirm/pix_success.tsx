@@ -30,13 +30,13 @@ export default function Pix() {
                             <span className="payment-step-number p-sm-4 p-lg-0">1</span>
                             <h2 className="payment-step-title">Copie o escaneie o código <strong>PIX</strong> abaixo:</h2>
                         </div>
-                        <input type="text" name="pix" id="pix" className="form-control" value={"00020126560014br.gov.bcb.pix0114104414700001440216Quem como Deus ?520400005303986540520.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62270523ComFilhosdaMisericordia6304AC62"} />
+                        <input type="text" name="pix" id="pix" className="form-control" value={"00020126560014br.gov.bcb.pix0114104414700001440216Encontro de cura520400005303986540530.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62240520VivopelaMisericordia630450A8"} />
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <Image className="qr_code" src={qr_code} alt="qr_code" />
                         </div>
                         <button type="button" className="btn btn-primary p-3 my-3" onClick={() => {
-                            navigator.clipboard.writeText("00020126560014br.gov.bcb.pix0114104414700001440216Quem como Deus ?520400005303986540520.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62270523ComFilhosdaMisericordia6304AC62")
+                            navigator.clipboard.writeText("00020126560014br.gov.bcb.pix0114104414700001440216Encontro de cura520400005303986540530.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62240520VivopelaMisericordia630450A8")
                                 .then(() => alert('QR_CODE copiado para área de transferência'))
 
                         }}>
