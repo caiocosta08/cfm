@@ -17,13 +17,14 @@ export default function Pix() {
     }, []);
     async function handleMove() {
         let text = "Olá! Gostaria de confirmar minha inscrição no evento. Meu nome é " + router.query.name + " e meu telefone é " + router.query.phone + "."
-        router.push("https://wa.me/558396022155?text=" + text);
+        router.push("https://wa.me/5583988532332?text=" + text);
+        // +55 83 8853-2332
     }
     useEffect(() => {
         // Inicializar clipboard.js
         const clipboard = new ClipboardJS('.btn-clipboard', {
             text: function () {
-                return "00020126560014br.gov.bcb.pix0114104414700001440216Encontro de cura520400005303986540530.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62240520VivopelaMisericordia630450A8";
+                return "00020126640014br.gov.bcb.pix0114104414700001440224ENC LIVRES DE TODO O MAL520400005303986540540.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62170513DEUSTEABENCOE63047FF7";
             }
         });
 
@@ -51,7 +52,7 @@ export default function Pix() {
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <Image className="qr_code" src={qr_code} alt="qr_code" />
                         </div>
-                        <div style={{ height: 100, wordWrap: 'break-word', overflowWrap: 'break-word', whiteSpace: 'normal', fontSize: 12, overflow: 'clip' }} id="pix" className="form-control">00020126560014br.gov.bcb.pix0114104414700001440216Encontro de cura520400005303986540530.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62240520VivopelaMisericordia630450A8</div>
+                        <div style={{ height: 100, wordWrap: 'break-word', overflowWrap: 'break-word', whiteSpace: 'normal', fontSize: 12, overflow: 'clip' }} id="pix" className="form-control">00020126640014br.gov.bcb.pix0114104414700001440224ENC LIVRES DE TODO O MAL520400005303986540540.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62170513DEUSTEABENCOE63047FF7</div>
                         <button type="button" className="btn btn-primary p-3 my-3 btn-clipboard">
                             <i className="bi bi-files"></i>
                             Copiar Código do PIX

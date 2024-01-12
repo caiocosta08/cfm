@@ -46,7 +46,7 @@ export default function Checkout() {
     });
     const doRequest = async (name: string, phone: string, email: string) => {
         // await axios.post('http://cfm-api.acutistecnologia.com/inscricao-tanouss', { name, phone, email })
-        return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email })
+        return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Livres de Toda Maldição' })
     }
 
 
@@ -80,7 +80,7 @@ export default function Checkout() {
                     </div>
                     <div style={{ width: '100%', height: 2, backgroundColor: '#e3e3e3', marginTop: 10, marginBottom: 20 }}></div>
                     <div className="checkout-body">
-                        <div style={titleStyle}>Inscrição no evento <strong>Vi tuas lágrimas vou curar-te</strong> com <strong>Roberto Tannus</strong></div>
+                        <div style={titleStyle}>Inscrição no evento <strong>Livres de Toda Maldição</strong> com <strong>Roberto Tannus</strong> e <strong>Padre George Batista</strong></div>
                         <form onSubmit={handleSubmit(createPayment)}>
                             <div className="checkout-step ms-n1">
                                 <div className="checkout-step-number">1</div>
