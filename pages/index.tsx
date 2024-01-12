@@ -128,6 +128,7 @@ export default function Checkout() {
                                     </div>
                                 </div>
                             </div>
+                            <div style={{ ...titleStyle, fontSize: 14 }}>A inscrição no evento custa <strong>R$40</strong> e as vagas são <strong>limitadas</strong>.</div>
                             <div className="checkout-step ms-n1 mt-4">
                                 <div className="checkout-step-number">2</div>
                                 <div className="checkout-step-text">Pagamento</div>
@@ -141,6 +142,8 @@ export default function Checkout() {
 
                                 </li>
                             </ul>
+
+
                             <div style={{ ...titleStyle, fontSize: 14 }}>Clique em <strong>CONFIRMAR INSCRIÇÃO</strong> para ver as informações de pagamento</div>
                             <button className="btn btn-primary btn-payment py-4 mt-4" type="submit">Confirmar inscrição</button>
                         </form>
