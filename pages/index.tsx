@@ -46,7 +46,8 @@ export default function Checkout() {
     });
     const doRequest = async (name: string, phone: string, email: string) => {
         // await axios.post('http://cfm-api.acutistecnologia.com/inscricao-tanouss', { name, phone, email })
-        return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Livres de Toda Maldição' })
+        // return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
+        return await axios.post('https://cors.sanguelimpo.com.br/https://benfeitores-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
     }
 
 
@@ -80,7 +81,7 @@ export default function Checkout() {
                     </div>
                     <div style={{ width: '100%', height: 2, backgroundColor: '#e3e3e3', marginTop: 10, marginBottom: 20 }}></div>
                     <div className="checkout-body">
-                        <div style={titleStyle}>Inscrição no evento <strong>Livres de Toda Maldição</strong> com <strong>Roberto Tannus</strong> e <strong>Padre George Batista</strong></div>
+                        <div style={titleStyle}>Inscrição no evento <strong>Encontro para famílias</strong> com <strong>Diácono Rômulo Canuto</strong> da <strong>Canção Nova</strong></div>
                         <form onSubmit={handleSubmit(createPayment)}>
                             <div className="checkout-step ms-n1">
                                 <div className="checkout-step-number">1</div>
@@ -128,7 +129,7 @@ export default function Checkout() {
                                     </div>
                                 </div>
                             </div>
-                            <div style={{ ...titleStyle, fontSize: 14 }}>A inscrição no evento custa <strong>R$40</strong> e as vagas são <strong>limitadas</strong>.</div>
+                            <div style={{ ...titleStyle, fontSize: 14 }}>A inscrição no evento custa <strong>R$30</strong> e as vagas são <strong>limitadas</strong>.</div>
                             <div className="checkout-step ms-n1 mt-4">
                                 <div className="checkout-step-number">2</div>
                                 <div className="checkout-step-text">Pagamento</div>
@@ -136,8 +137,7 @@ export default function Checkout() {
                             <ul className="nav nav-pills my-4" id="pills-tab" role="tablist">
                                 <li className="nav-item" role="presentation">
                                     <button onClick={() => setPaymentMethod('pix')} className="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                        <img src="https://pepper.com.br/checkout/assets/svg/pay-pix.svg" alt="" /><br />
-                                        PIX
+                                        <strong>PIX</strong>
                                     </button>
 
                                 </li>
