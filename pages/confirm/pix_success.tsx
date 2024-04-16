@@ -18,13 +18,12 @@ export default function Pix() {
     async function handleMove() {
         let text = "Olá! Gostaria de confirmar minha inscrição no evento. Meu nome é " + router.query.name + " e meu telefone é " + router.query.phone + "."
         router.push("https://wa.me/5583988532332?text=" + text);
-        // +55 83 8853-2332
     }
     useEffect(() => {
         // Inicializar clipboard.js
         const clipboard = new ClipboardJS('.btn-clipboard', {
             text: function () {
-                return "00020126640014br.gov.bcb.pix0114104414700001440224ENC LIVRES DE TODO O MAL520400005303986540540.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62170513DEUSTEABENCOE63047FF7";
+                return "10.441.470/0001-44";
             }
         });
 
@@ -47,16 +46,13 @@ export default function Pix() {
                     <div className="row mb-3">
                         <div className="payment-step mb-3">
                             <span className="payment-step-number p-sm-4 p-lg-0">1</span>
-                            <h2 className="payment-step-title">Copie o escaneie o código <strong>PIX</strong> abaixo:</h2>
+                            <h2 className="payment-step-title">Copie o código <strong>PIX CNPJ</strong> abaixo:</h2>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Image className="qr_code" src={qr_code} alt="qr_code" />
-                        </div>
-                        <div style={{ height: 100, wordWrap: 'break-word', overflowWrap: 'break-word', whiteSpace: 'normal', fontSize: 12, overflow: 'clip' }} id="pix" className="form-control">00020126640014br.gov.bcb.pix0114104414700001440224ENC LIVRES DE TODO O MAL520400005303986540540.005802BR5925FUNDACAO SAO PADRE PIO DE6011JOAO PESSOA62170513DEUSTEABENCOE63047FF7</div>
-                        <button type="button" className="btn btn-primary p-3 my-3 btn-clipboard">
+                        <div style={{  wordWrap: 'break-word', overflowWrap: 'break-word', whiteSpace: 'normal', fontSize: 16, overflow: 'clip' }} id="pix" className="form-control">10.441.470/0001-44</div>
+                        {/* <button type="button" className="btn btn-primary p-3 my-3 btn-clipboard">
                             <i className="bi bi-files"></i>
                             Copiar Código do PIX
-                        </button>
+                        </button> */}
                     </div>
                     <div className="row">
                         <div className="payment-step mb-3">
@@ -67,13 +63,19 @@ export default function Pix() {
                     <div className="row">
                         <div className="payment-step mb-3">
                             <span className="payment-step-number">3</span>
-                            <h2 className="payment-step-title">Na seção de PIX, selecione a opção <strong>"Pix Copia e Cola"</strong></h2>
+                            <h2 className="payment-step-title">Na seção de PIX, selecione a opção <strong>pagar com chave CNPJ</strong></h2>
                         </div>
                     </div>
                     <div className="row">
                         <div className="payment-step mb-3">
                             <span className="payment-step-number">4</span>
-                            <h2 className="payment-step-title">Cole o código</h2>
+                            <h2 className="payment-step-title">Cole a chave</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="payment-step mb-3">
+                            <span className="payment-step-number">5</span>
+                            <h2 className="payment-step-title">Coloque o valor R$30,00 e efetue o pagamento</h2>
                         </div>
                     </div>
                     <div className="row">

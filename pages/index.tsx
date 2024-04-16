@@ -47,7 +47,7 @@ export default function Checkout() {
     const doRequest = async (name: string, phone: string, email: string) => {
         // await axios.post('http://cfm-api.acutistecnologia.com/inscricao-tanouss', { name, phone, email })
         // return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
-        return await axios.post('https://cors.sanguelimpo.com.br/https://benfeitores-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
+        return await axios.post('https://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
     }
 
 
