@@ -6,11 +6,10 @@ import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import img1 from '../public/images/evento-img.png'
 import Image from 'next/image';
 import axios from 'axios'
-
 
 const createPaymentFormSchemaPix = z.object({
     name: z.string()
@@ -37,26 +36,27 @@ export default function Checkout() {
         require("bootstrap/dist/js/bootstrap.bundle.min.js")
     }, []);
 
-    const [paymentMethod, setPaymentMethod] = useState('pix')
-    const [qrCodeImage, setQrCodeImage] = useState(null)
-    const [qrCode, setQrCode] = useState(null)
-    const [copyQrCodeVisible, setCopyQrCodeVisible] = useState(false)
-
-
     const { register, handleSubmit, formState: { errors } } = useForm<CreatePaymentFormData>({
         resolver: zodResolver(createPaymentFormSchemaPix),
     });
     const doRequest = async (name: string, phone: string, email: string, want_lunch: string = "não") => {
-        // await axios.post('http://cfm-api.acutistecnologia.com/inscricao-tanouss', { name, phone, email })
-        // return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
         return await axios.post('https://cfm-api.acutistecnologia.com/cfm', { name, phone, email, want_lunch, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
     }
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function createPayment(data: any) {
-        const response = await doRequest(data.name, data.phone, data.email, data.want_lunch);
-        if (response) {
-            router.push("/confirm/pix_success?name=" + data.name + "&phone=" + data.phone + "&email=" + data.email);
+
+        if(isLoading === true) return false
+
+        try {
+            setIsLoading(true)
+            const response = await doRequest(data.name, data.phone, data.email, data.want_lunch);
+            if (response) {
+                router.push("/confirm/pix_success?name=" + data.name + "&phone=" + data.phone + "&email=" + data.email);
+            }
+        } catch (error) {
+            setIsLoading(false)
         }
     }
     const imgStyle: CSSProperties = {
@@ -139,7 +139,7 @@ export default function Checkout() {
                                         <label htmlFor="yes">Sim</label><br />
                                         <input id="no" type="radio" {...register('want_lunch')} value={"não"} style={{ marginRight: 10 }} />
                                         <label htmlFor="no">Não</label><br />
-                                        {errors.want_lunch && <div style={{ marginTop: 20}} className="input-errors">{errors.want_lunch.message}</div>}
+                                        {errors.want_lunch && <div style={{ marginTop: 20 }} className="input-errors">{errors.want_lunch.message}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -150,16 +150,15 @@ export default function Checkout() {
                             </div>
                             <ul className="nav nav-pills my-4" id="pills-tab" role="tablist">
                                 <li className="nav-item" role="presentation">
-                                    <button onClick={() => setPaymentMethod('pix')} className="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                    <button className="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
                                         <strong>PIX</strong>
                                     </button>
 
                                 </li>
                             </ul>
 
-
                             <div style={{ ...titleStyle, fontSize: 14 }}>Clique em <strong>CONFIRMAR INSCRIÇÃO</strong> para ver as informações de pagamento</div>
-                            <button className="btn btn-primary btn-payment py-4 mt-4" type="submit">Confirmar inscrição</button>
+                            <button className="btn btn-primary btn-payment py-4 mt-4" type="submit">{ isLoading ?  "Carregando... Aguarde" : "Confirmar inscrição"}</button>
                         </form>
                     </div>
                 </section>
