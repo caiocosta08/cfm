@@ -24,7 +24,9 @@ const createPaymentFormSchemaPix = z.object({
         .nonempty('Informe o seu e-mail para continuar.'),
     phone: z.string()
         .nonempty('Informe o seu telefone para continuar.')
-        .min(10)
+        .min(10),
+    want_lunch: z.string()
+        .nonempty('Informe se quer almoço para continuar.'),
 })
 
 type CreatePaymentFormData = z.infer<typeof createPaymentFormSchemaPix>
@@ -44,15 +46,15 @@ export default function Checkout() {
     const { register, handleSubmit, formState: { errors } } = useForm<CreatePaymentFormData>({
         resolver: zodResolver(createPaymentFormSchemaPix),
     });
-    const doRequest = async (name: string, phone: string, email: string) => {
+    const doRequest = async (name: string, phone: string, email: string, want_lunch: string = "não") => {
         // await axios.post('http://cfm-api.acutistecnologia.com/inscricao-tanouss', { name, phone, email })
         // return await axios.post('http://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
-        return await axios.post('https://cfm-api.acutistecnologia.com/cfm', { name, phone, email, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
+        return await axios.post('https://cfm-api.acutistecnologia.com/cfm', { name, phone, email, want_lunch, event: 'Encontro para famílias com Diácono Rômulo da Canção Nova' })
     }
 
 
     async function createPayment(data: any) {
-        const response = await doRequest(data.name, data.phone, data.email);
+        const response = await doRequest(data.name, data.phone, data.email, data.want_lunch);
         if (response) {
             router.push("/confirm/pix_success?name=" + data.name + "&phone=" + data.phone + "&email=" + data.email);
         }
@@ -126,6 +128,18 @@ export default function Checkout() {
                                         />
                                         <i className="bi bi-whatsapp"></i>
                                         {errors.phone && <div className="input-errors">{errors.phone.message}</div>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="form-group">
+                                        <label htmlFor="name">Você irá querer almoço?</label><br />
+                                        <input id="yes" type="radio" {...register('want_lunch')} value={"sim"} style={{ marginRight: 10 }} />
+                                        <label htmlFor="yes">Sim</label><br />
+                                        <input id="no" type="radio" {...register('want_lunch')} value={"não"} style={{ marginRight: 10 }} />
+                                        <label htmlFor="no">Não</label><br />
+                                        {errors.want_lunch && <div style={{ marginTop: 20}} className="input-errors">{errors.want_lunch.message}</div>}
                                     </div>
                                 </div>
                             </div>
